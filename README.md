@@ -2,7 +2,7 @@
 POO Labo3
 
 # Lors d'un commit merci de faire un git add seulements des fichiers java nécéssaires
-# Du coup lors d'un commit ne pas mettre le -a (qui ferait un commit de tous les fichiers) mais simplement un commit -a "commentaires"
+# Du coup lors d'un commit ne pas mettre le -a (qui ferait un commit de tous les fichiers) mais simplement un commit -m "commentaires"
 
 Pour éviter les conflits il vaut mieux:
 - copier le code ajouté
