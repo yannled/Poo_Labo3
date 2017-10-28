@@ -1,4 +1,4 @@
-package com.company;
+import static java.lang.System.out;
 
 public class Point {
 
@@ -34,7 +34,13 @@ public class Point {
    }
 
    public void affiche(){
+      out.printf(" {%d, %d}",x,y);
+   }
 
+   public void echanger(){
+      int temp = x;
+      x = y;
+      y = temp;
    }
 
    private int x,

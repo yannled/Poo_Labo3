@@ -1,4 +1,5 @@
-package com.company;
+import static java.lang.StrictMath.sqrt;
+import static java.lang.System.out;
 
 public class Segment {
 
@@ -24,16 +25,32 @@ public class Segment {
    }
 
    public void affiche(){
-
+      out.printf("(A: ");
+      pointA.affiche();
+      out.printf(") B: ");
+      pointB.affiche();
+      out.println(")");
    }
 
    public double calculerLongueur(){
-      return 0.0;
+
+      int longeurVerticale = pointB.getY()-pointA.getY(); //TODO: ajouter absolue
+      int longeurHorizontale = pointB.getX()-pointA.getX(); //TODO: ajouter absolue
+
+      if(pointA.getY() == pointB.getY()) //ligne verticale
+         return longeurVerticale;
+
+      if(pointA.getX() == pointB.getX()) //ligne horizontale
+         return longeurHorizontale;
+
+      return sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
 
    public boolean estSurSegment(Point p){
+      if()
       return false;
    }
+
 
    public void echanger(Segment s){
 
