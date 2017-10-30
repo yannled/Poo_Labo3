@@ -34,7 +34,7 @@ public class Point {
    }
 
    public void affiche(){
-      out.printf(" {%d, %d}",x,y);
+      out.printf("(%d, %d)",x,y);
    }
 
    public void echanger(){

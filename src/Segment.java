@@ -3,6 +3,7 @@ import static java.lang.System.out;
 
 public class Segment {
 
+	//TODO: rajouter les constructeurs restants
    public Segment(Point A, Point B){
       pointA = A;
       pointB = B;
@@ -25,17 +26,17 @@ public class Segment {
    }
 
    public void affiche(){
-      out.printf("(A: ");
+      out.printf("[");
       pointA.affiche();
-      out.printf(") B: ");
+      out.printf("];[");
       pointB.affiche();
-      out.println(")");
+      out.println("]");
    }
 
    public double calculerLongueur(){
 
-      int longeurVerticale = pointB.getY()-pointA.getY(); //TODO: ajouter absolue
-      int longeurHorizontale = pointB.getX()-pointA.getX(); //TODO: ajouter absolue
+      int longeurVerticale   = pointB.getY() - pointA.getY(); //TODO: ajouter absolue
+      int longeurHorizontale = pointB.getX() - pointA.getX(); //TODO: ajouter absolue
 
       if(pointA.getY() == pointB.getY()) //ligne verticale
          return longeurVerticale;
@@ -47,7 +48,7 @@ public class Segment {
    }
 
    public boolean estSurSegment(Point p){
-      if()
+      //if()
       return false;
    }
 
