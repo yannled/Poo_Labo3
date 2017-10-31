@@ -13,9 +13,6 @@
  -----------------------------------------------------------------------------------
 */
 
-import static java.lang.StrictMath.abs;
-import static java.lang.StrictMath.sqrt;
-import static java.lang.System.out;
 
 
 public class Segment {
@@ -34,18 +31,6 @@ public class Segment {
 
    public Segment(Point A, Point B){
       pointA = new Point(A);
-      pointB = new Point(B);
-   }
-
-   // posX et posY seront les coordonnée du point B
-   public Segment(Point A, int posX, int posY){
-      pointA = new Point(A);
-      pointB = new Point(posX, posY);
-   }
-
-   //TODO: delete ?
-   public Segment(int posX, int posY, Point B){
-      pointA = new Point(posX, posY);
       pointB = new Point(B);
    }
 
@@ -78,17 +63,17 @@ public class Segment {
    }
 
    public void affiche(){
-      out.printf("[");
+      System.out.printf("[");
       pointA.affiche();
-      out.printf("];[");
+      System.out.printf("];[");
       pointB.affiche();
-      out.println("]");
+      System.out.println("]");
    }
 
    public double calculerLongueur(){
 
-      int longeurVerticale   = abs(pointB.getY() - pointA.getY()); //TODO: tester abs
-      int longeurHorizontale = abs(pointB.getX() - pointA.getX()); //TODO: tester abs
+      int longeurVerticale   = Math.abs(pointB.getY() - pointA.getY());
+      int longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
 
       //TODO: C'est l'inverse, non ? si A.y == B.y => ligne horizontal
       if(pointA.getY() == pointB.getY()) //ligne verticale
@@ -97,7 +82,7 @@ public class Segment {
       if(pointA.getX() == pointB.getX()) //ligne horizontale
          return (double)longeurHorizontale;
 
-      return sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
+      return Math.sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
 
    public boolean estSurSegment(Point p){

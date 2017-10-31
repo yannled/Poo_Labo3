@@ -13,9 +13,6 @@
  -----------------------------------------------------------------------------------
 */
 
-package com.company;
-
-import static java.lang.System.out;
 
 public class Point {
 
@@ -56,7 +53,7 @@ public class Point {
    }
 
    public void affiche(){
-      out.printf("(%d, %d)",x,y);
+      System.out.printf("(%d, %d)",x,y);
    }
 
    public void echanger(){
