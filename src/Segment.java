@@ -83,9 +83,25 @@ public class Segment {
       return Math.sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
 
+   // On considère que si le point p est confondu avec le point A ou B, p fait parti du segment
+   // Il est important de noter que le point p est dont on veut savoir s'il se trouve sur le segment ou non
+   //TODO: Rajouter l'epsilon
    public boolean estSurSegment(Point p){
-      //if()
-      return false;
+      final int pX = p.getX(),      // Coordonnée X de p
+                pY = p.getY(),      // Coordonnée Y de p
+                aX = pointA.getX(), // Coordonnée X de A
+                aY = pointA.getY(), // Coordonnée Y de A
+                bX = pointB.getX(), // Coordonnée X de B
+                bY = pointB.getY(); // Coordonnée Y de B
+
+      // Vérifie si p est confondu au point A ou B
+      if((pX == aX && pY == aY) || (pX == bX && pY == bY))
+         return true;
+
+      Segment segAP = new Segment(pointA, p),
+              segPB = new Segment(p, pointB);
+
+      return segAP.calculerLongueur() + segPB.calculerLongueur() == calculerLongueur();
    }
 
 
