@@ -71,16 +71,14 @@ public class Segment {
    }
 
    public double calculerLongueur(){
-
       int longeurVerticale   = Math.abs(pointB.getY() - pointA.getY());
       int longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
 
-      //TODO: C'est l'inverse, non ? si A.y == B.y => ligne horizontal
-      if(pointA.getY() == pointB.getY()) //ligne verticale
-         return (double)longeurVerticale;
-
-      if(pointA.getX() == pointB.getX()) //ligne horizontale
+      if(pointA.getY() == pointB.getY()) //ligne horizontale
          return (double)longeurHorizontale;
+
+      if(pointA.getX() == pointB.getX()) //ligne verticale
+         return (double)longeurVerticale;
 
       return Math.sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
