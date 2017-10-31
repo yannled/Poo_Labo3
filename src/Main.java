@@ -27,13 +27,29 @@ public class Main {
 
       Segment s1 = new Segment();
       Segment s2 = new Segment(p1, p2);
-      Segment s3 = new Segment(p3,6, 7);
-      Segment s4 = new Segment(8, 9, p4);
       Segment s5 = new Segment(10, 11 ,12, 13);
       Segment s6 = new Segment(s2);
 
+      System.out.println("Point s2: ");
+      s2.affiche();
+      System.out.println("Point s5: ");
+      s5.affiche();
+      System.out.println("Echange de s2 et s5: ");
 
+      s2.echanger(s5);
 
-      System.out.println("Hello World!");
+      System.out.println("Point s2: ");
+      s2.affiche();
+      System.out.println("Point s5: ");
+      s5.affiche();
+
+      System.out.println("Re-echange de s2 et s5: ");
+
+      Segment.echangerStatic(s5,s2);
+
+      System.out.println("Point s2: ");
+      s2.affiche();
+      System.out.println("Point s5: ");
+      s5.affiche();
    }
 }

@@ -56,10 +56,13 @@ public class Point {
       System.out.printf("(%d, %d)",x,y);
    }
 
-   public void echanger(){
-      int temp = x;
-      x = y;
-      y = temp;
+   public void echanger(Point p){
+      int tempX = p.x;
+      int tempY = p.y;
+      p.x = x;
+      p.y = y;
+      x = tempX;
+      y = tempY;
    }
 
    private int x,

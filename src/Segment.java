@@ -91,12 +91,15 @@ public class Segment {
    }
 
 
+   //échange par valeurs
    public void echanger(Segment s){
-
+      s.pointA.echanger(pointA);
+      s.pointB.echanger(pointB);
    }
 
    public static void echangerStatic(Segment s1, Segment s2){
-
+      s1.pointA.echanger(s2.pointA);
+      s1.pointB.echanger(s2.pointB);
    }
 
    private Point pointA,
