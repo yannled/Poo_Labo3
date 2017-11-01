@@ -5,7 +5,15 @@
  Auteur(s)   : David Jaquet & Yann Lederrey
  Date        : 26.10.2017
 
- But         : <à compléter>
+ But         : La class Point à pour but de modéliser des points et offre
+               l'interface suivante:
+               - constructions à partir d'une coordonée, de deux, d'un autre point
+                 ou à partir de rien.
+               - modifications des coordonées du point
+               - récupération des coordonées du point
+               - affichage
+               - fonction ToString
+               - Echange des coordonées du point.
 
  Remarque(s) : - Les coordonnées des points sont entières
 
@@ -20,14 +28,13 @@ public class Point {
       y = 0;
    }
 
-   public Point(int valeurX){
-      x = valeurX;
-      y = 0;
-   }
-
    public Point(int valeurX, int valeurY){
       x = valeurX;
       y = valeurY;
+   }
+
+   public Point(int valeurX){
+      this(valeurX,0);
    }
 
    public Point(Point pointACopier){

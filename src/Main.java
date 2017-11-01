@@ -18,63 +18,123 @@
 public class Main {
 
    public static void main(String[] args) {
+
       Point p1 = new Point();
       Point p2 = new Point(1);
       Point p3 = new Point(2, 3);
-      Point p4 = new Point(p3);
+      Point p3_bis = new Point(p3);
 
-      p4.setX(4);
-      p4.setY(5);
-
-      Segment s1 = new Segment();
+      Segment sNull = new Segment();
+      Segment sVertical = new Segment(1,1,1,16);
+      Segment sHorizontal = new Segment(1,1,16,1);
+      Segment s1 = new Segment(10, 11 ,13, 14);
+      Segment s1Inverse = new Segment(s1.getPointB(), s1.getPointA());
       Segment s2 = new Segment(p1, p2);
-      Segment s5 = new Segment(10, 11 ,12, 13);
-      Segment s6 = new Segment(s2);
+      Segment s2_bis = new Segment(s2);
 
-      //TODO: faire un test d'échange de Point.
-      System.out.println("TEST DES ECHANGES DE SEGMENTS : ");
+      System.out.printf("TEST DES CONSTRUCTEURS, GET, SET ");
 
-      System.out.println("Point s2: ");
+      System.out.printf("\n - Point p1: ");
+      System.out.printf("coordonée X = %d, coordonée Y = %d", p1.getX(), p1.getY());
+      System.out.printf("\n - Point p2: " + p2.toString());
+      System.out.printf("\n - Point p3: ");
+      p3.affiche();
+
+      System.out.printf("\n - Point p3_bis après Set : ");
+      p3_bis.setX(11);
+      p3_bis.setY(12);
+
+      p3_bis.affiche();
+
+      System.out.printf("\n - Segment s2: " + s2.getPointA().toString() + s2.getPointB().toString());
+
+      System.out.printf("\n - Segment s2_bis après Set : ");
+      s2_bis.setPointA(p2);
+      s2_bis.setPointB(p1);
+
+      s2_bis.affiche();
+
+      System.out.printf("\n\nTEST DES ECHANGES DE POINTS : ");
+
+      System.out.printf("\n - Point p2: ");
+      p2.affiche();
+      System.out.printf("\n - Point p3: ");
+      p3.affiche();
+      System.out.printf("\nEchange de p2 et p3. ");
+
+      p2.echanger(p3);
+
+      System.out.printf("\n - Point p2: ");
+      p2.affiche();
+      System.out.printf("\n - Point p3: ");
+      p3.affiche();
+
+
+      System.out.printf("\n\nTEST DES ECHANGES DE SEGMENTS : ");
+
+      System.out.printf("\n - Segment s2: ");
       s2.affiche();
-      System.out.println("Point s5: ");
-      s5.affiche();
-      System.out.println("Echange de s2 et s5: ");
+      System.out.printf("\n - Segment s1: ");
+      s1.affiche();
+      System.out.printf("\nEchange de s2 et s1. ");
 
-      s2.echanger(s5);
+      s2.echanger(s1);
 
-      System.out.println("Point s2: ");
+      System.out.printf("\n - Segment s2: ");
       s2.affiche();
-      System.out.println("Point s5: ");
-      s5.affiche();
+      System.out.printf("\n - Segment s1: ");
+      s1.affiche();
 
-      System.out.println("Re-echange de s2 et s5: ");
+      System.out.printf("\n Re-echange (Static) de s2 et s1. ");
 
-      Segment.echangerStatic(s5,s2);
+      Segment.echangerStatic(s1,s2);
 
-      System.out.println("Point s2: ");
+      System.out.printf("\n - Segment s2: ");
       s2.affiche();
-      System.out.println("Point s5: ");
-      s5.affiche();
+      System.out.printf("\n - Segment s1: ");
+      s1.affiche();
 
-      System.out.println("TEST DES CALCUL DE LONGEUR : ");
-      Segment segmentNull = new Segment();
-      double longueurSegmentNull = segmentNull.calculerLongueur();
-      System.out.printf("Pour un segement de coordonées A et B (0,0) la longeur est de %f\n", longueurSegmentNull);
+      System.out.printf("\n\nTEST DES CALCUL DE LONGUEUR : ");
+      
+      double longueur = sNull.calculerLongueur();
 
-      Segment segmentVertical = new Segment(1,1,1,16);
-      double longueurSegmentVertical = segmentVertical.calculerLongueur();
-      System.out.printf("Pour un segement vertical la longeur verticale est de %f\n", longueurSegmentVertical);
+      System.out.printf("\nPour un segement de coordonées A et B (0,0) la longeur est de %f ", longueur);
+      
+      longueur = sVertical.calculerLongueur();
+      
+      System.out.printf("\nPour un segement vertical : " +
+                        sVertical.toString() +
+                        " la longeur est de %f", longueur);
+      
+      longueur = sHorizontal.calculerLongueur();
+      
+      System.out.printf("\nPour un segement horizonal : " +
+                        sHorizontal.toString() +
+                        " la longeur est de %f", longueur);
 
-      Segment segmentHorizontal = new Segment(1,1,16,1);
-      double longueurSegmentHorizontal = segmentHorizontal.calculerLongueur();
-      System.out.printf("Pour un segement vertical la longeur horizontale est de %f\n", longueurSegmentHorizontal);
+      longueur = s1.calculerLongueur();
+      
+      System.out.printf("\nPour un segement simple : " +
+                       s1.toString() +
+                       " la longeur est de %f", longueur);
+      
+      longueur = s1Inverse.calculerLongueur();
+      System.out.printf("\nPour un segement inverse du précédent : " +
+                        s1Inverse.toString() +
+                        " la longeur est de %f", longueur);
 
-      double longeurS5 = s5.calculerLongueur();
-      System.out.printf("Pour un segement simple la longeur est de %f\n", longeurS5);
+      System.out.printf("\n\nTEST DES EST SUR SEGMENT: ");
 
-      Segment inverseS5 = new Segment(12,13,10,11);
-      double longeurInverseS5 = inverseS5.calculerLongueur();
-      System.out.printf("Pour un segement inverse du précédent la longeur est de %f\n", longeurInverseS5);
+      boolean estSurSegment = sNull.estSurSegment(p1);
+      System.out.printf("\nLe point "+ p1.toString() + " est-il sur le segment " +
+                        sNull.toString() + " : %b", estSurSegment);
 
+      estSurSegment = s1.estSurSegment(p2);
+      System.out.printf("\nLe point "+ p2.toString() + " est-il sur le segment " +
+                       s1.toString() + " : %b", estSurSegment);
+
+      estSurSegment = s1.estSurSegment(p3_bis);
+      System.out.printf("\nLe point "+ p3_bis.toString() + " est-il sur le segment " +
+              s1.toString() + " : %b", estSurSegment);
    }
 }

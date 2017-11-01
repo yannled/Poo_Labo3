@@ -5,9 +5,22 @@
  Auteur(s)   : David Jaquet & Yann Lederrey
  Date        : 26.10.2017
 
- But         : <à compléter>
+ But         : La class Segment à pour but de modéliser des segments et offre
+               l'interface suivante:
+               - constructions à partir d'un point, de deux point
+                 de coordonées, d'un autre segment et à partir de rien.
+               - modifications des points du segment
+               - récupération des points du segment
+               - affichage
+               - fonction ToString
+               - Calcul de la longueur du segment
+               - vérification si un point se trouve sur le segment.
+               - Echange des points du segment.
 
  Remarque(s) : - Les coordonnées des points sont entières
+               - Les fonctions echanger et echangerStatic effectue des échanges de
+               valeurs et non de références.
+               - Cette class utilise la class Point.java
 
  Compilateur : jdk1.8.0_144
  -----------------------------------------------------------------------------------
@@ -21,15 +34,14 @@ public class Segment {
       pointB = new Point();
    }
 
-   // Les 2 points auront la même coordonnée
-   public Segment(Point p){
-      pointA = new Point(p);
-      pointB = new Point(p);
-   }
-
    public Segment(Point A, Point B){
       pointA = new Point(A);
       pointB = new Point(B);
+   }
+
+   // Les 2 points auront la même coordonnée
+   public Segment(Point p){
+      this(p,p);
    }
 
    public Segment(int posAX, int posAY, int posBX, int posBY){
@@ -74,6 +86,7 @@ public class Segment {
       if(pointA.getX() == pointB.getX()) //ligne verticale
          return (double)longeurVerticale;
 
+      //pythagore
       return Math.sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
 
@@ -87,7 +100,11 @@ public class Segment {
 
       // Le point P est sur le ségment si la somme du segment AP et du segment PB
       // est égal au segment AB
-      return segAP.calculerLongueur() + segPB.calculerLongueur() == calculerLongueur();
+      double difference = segAP.calculerLongueur() + segPB.calculerLongueur() - this.calculerLongueur();
+
+      // la différence de longeur des segments est comparée avec un epsilon afin
+      // de ne pas comparer deux double imprécis
+      return Math.abs(difference) < epsilon;
    }
 
    public String toString(){
@@ -101,8 +118,7 @@ public class Segment {
    }
 
    public static void echangerStatic(Segment s1, Segment s2){
-      s1.pointA.echanger(s2.pointA);
-      s1.pointB.echanger(s2.pointB);
+      s1.echanger(s2);
    }
 
    private Point pointA,
