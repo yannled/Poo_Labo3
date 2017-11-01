@@ -7,12 +7,12 @@
 
  But         : La class Point à pour but de modéliser des points et offre
                l'interface suivante:
-               - constructions à partir d'une coordonée, de deux, d'un autre point
-                 ou à partir de rien.
-               - modifications des coordonées du point
-               - récupération des coordonées du point
-               - affichage
-               - fonction ToString
+               - Constructions à partir d'une coordonée, de deux coordonnées,
+			     d'un autre point ou à partir de rien.
+               - Modifications des coordonées du point
+               - Récupération des coordonées du point
+               - Affichage
+               - Fonction toString
                - Echange des coordonées du point.
 
  Remarque(s) : - Les coordonnées des points sont entières
@@ -68,7 +68,7 @@ public class Point {
 
    public void echanger(Point p){
       int tempX = p.x,
-          tempY = p.y;
+            tempY = p.y;
 
       p.x = x;
       p.y = y;

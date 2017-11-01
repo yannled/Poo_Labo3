@@ -7,20 +7,20 @@
 
  But         : La class Segment à pour but de modéliser des segments et offre
                l'interface suivante:
-               - constructions à partir d'un point, de deux point
+               - Constructions à partir d'un point, de deux point,
                  de coordonées, d'un autre segment et à partir de rien.
-               - modifications des points du segment
-               - récupération des points du segment
-               - affichage
-               - fonction ToString
+               - Modifications des points du segment
+               - Récupération des points du segment
+               - Affichage
+               - Fonction toString
                - Calcul de la longueur du segment
                - vérification si un point se trouve sur le segment.
                - Echange des points du segment.
 
  Remarque(s) : - Les coordonnées des points sont entières
                - Les fonctions echanger et echangerStatic effectue des échanges de
-               valeurs et non de références.
-               - Cette class utilise la class Point.java
+                 valeurs et non de références.
+               - Cette classe utilise la classe Point.java
 
  Compilateur : jdk1.8.0_144
  -----------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ public class Segment {
 
    public double calculerLongueur(){
       int longeurVerticale   = Math.abs(pointB.getY() - pointA.getY()),
-          longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
+            longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
 
       if(pointA.getY() == pointB.getY()) //ligne horizontale
          return (double)longeurHorizontale;
@@ -90,19 +90,18 @@ public class Segment {
       return Math.sqrt(longeurHorizontale * longeurHorizontale + longeurVerticale * longeurVerticale);
    }
 
-   // On considère que si le point p est confondu avec le point A ou B, p fait parti du segment
-   // Il est important de noter que le point p est dont on veut savoir s'il se trouve sur le segment ou non
+   // On considère que si le point p est confondu avec le point A ou B, p fait parti du segment.
    public boolean estSurSegment(Point p){
-      final double epsilon = 0.000001; //TODO: expliquer, appliquer
+      final double epsilon = 0.000001;
 
       Segment segAP = new Segment(pointA, p),
-              segPB = new Segment(p, pointB);
+            segPB = new Segment(p, pointB);
 
-      // Le point P est sur le ségment si la somme du segment AP et du segment PB
+      // Le point P est sur le segment si la somme des longueurs du segment AP et du segment PB
       // est égal au segment AB
-      double difference = segAP.calculerLongueur() + segPB.calculerLongueur() - this.calculerLongueur();
+      double difference = segAP.calculerLongueur() + segPB.calculerLongueur() - calculerLongueur();
 
-      // la différence de longeur des segments est comparée avec un epsilon afin
+      // La différence de longeur des segments est comparée avec un epsilon afin
       // de ne pas comparer deux double imprécis
       return Math.abs(difference) < epsilon;
    }
