@@ -13,8 +13,6 @@
  -----------------------------------------------------------------------------------
 */
 
-
-
 public class Segment {
 
    // Si on ne donne pas de paramètre au segment, il aura une taille nulle
@@ -63,16 +61,12 @@ public class Segment {
    }
 
    public void affiche(){
-      System.out.printf("[");
-      pointA.affiche();
-      System.out.printf("];[");
-      pointB.affiche();
-      System.out.println("]");
+      System.out.print(toString());
    }
 
    public double calculerLongueur(){
-      int longeurVerticale   = Math.abs(pointB.getY() - pointA.getY());
-      int longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
+      int longeurVerticale   = Math.abs(pointB.getY() - pointA.getY()),
+          longeurHorizontale = Math.abs(pointB.getX() - pointA.getX());
 
       if(pointA.getY() == pointB.getY()) //ligne horizontale
          return (double)longeurHorizontale;
@@ -85,27 +79,22 @@ public class Segment {
 
    // On considère que si le point p est confondu avec le point A ou B, p fait parti du segment
    // Il est important de noter que le point p est dont on veut savoir s'il se trouve sur le segment ou non
-   //TODO: Rajouter l'epsilon
    public boolean estSurSegment(Point p){
-      final int pX = p.getX(),      // Coordonnée X de p
-                pY = p.getY(),      // Coordonnée Y de p
-                aX = pointA.getX(), // Coordonnée X de A
-                aY = pointA.getY(), // Coordonnée Y de A
-                bX = pointB.getX(), // Coordonnée X de B
-                bY = pointB.getY(); // Coordonnée Y de B
-
-      // Vérifie si p est confondu au point A ou B
-      if((pX == aX && pY == aY) || (pX == bX && pY == bY))
-         return true;
+      final double epsilon = 0.000001; //TODO: expliquer, appliquer
 
       Segment segAP = new Segment(pointA, p),
               segPB = new Segment(p, pointB);
 
+      // Le point P est sur le ségment si la somme du segment AP et du segment PB
+      // est égal au segment AB
       return segAP.calculerLongueur() + segPB.calculerLongueur() == calculerLongueur();
    }
 
+   public String toString(){
+      return "[" + pointA.toString() + ";" + pointB.toString() + "]";
+   }
 
-   //échange par valeurs
+   // Echange par valeurs
    public void echanger(Segment s){
       s.pointA.echanger(pointA);
       s.pointB.echanger(pointB);

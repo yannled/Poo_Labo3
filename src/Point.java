@@ -13,7 +13,6 @@
  -----------------------------------------------------------------------------------
 */
 
-
 public class Point {
 
    public Point(){
@@ -21,14 +20,14 @@ public class Point {
       y = 0;
    }
 
-   public Point(int valueX){
-      x = valueX;
+   public Point(int valeurX){
+      x = valeurX;
       y = 0;
    }
 
-   public Point(int valueX, int valueY){
-      this.x = valueX;
-      this.y = valueY;
+   public Point(int valeurX, int valeurY){
+      x = valeurX;
+      y = valeurY;
    }
 
    public Point(Point pointACopier){
@@ -44,23 +43,29 @@ public class Point {
       return y;
    }
 
-   public void setX(int value){
-      x = value;
+   public void setX(int valeur){
+      x = valeur;
    }
 
-   public void setY(int value){
-      y = value;
+   public void setY(int valeur){
+      y = valeur;
    }
 
    public void affiche(){
-      System.out.printf("(%d, %d)",x,y);
+      System.out.print(toString());
+   }
+
+   public String toString(){
+      return "(" + x + "," + y + ")";
    }
 
    public void echanger(Point p){
-      int tempX = p.x;
-      int tempY = p.y;
+      int tempX = p.x,
+          tempY = p.y;
+
       p.x = x;
       p.y = y;
+
       x = tempX;
       y = tempY;
    }
