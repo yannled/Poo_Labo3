@@ -5,7 +5,9 @@
  Auteur(s)   : David Jaquet & Yann Lederrey
  Date        : 26.10.2017
 
- But         : <à compléter>
+ But         : Ce laboratoire a pour but de modéliser des Point et des Segment dans le Plan
+               a travers deux classes respectivement Point.java et Segment.Java.
+
 
  Remarque(s) : - Les coordonnées des points sont entières
 
@@ -13,7 +15,7 @@
  -----------------------------------------------------------------------------------
 */
 
-//TODO: Expliquer notre choix dans Segment.java ou dans feuille labo de faire des échanges de valeurs et pas de référence.
+//TODO: Expliquer notre choix dans Segment.java ou dans feuille labo de faire des echanges de valeurs et pas de reference.
 
 public class Main {
 
@@ -35,12 +37,12 @@ public class Main {
       System.out.printf("TEST DES CONSTRUCTEURS, GET, SET ");
 
       System.out.printf("\n - Point p1: ");
-      System.out.printf("coordonée X = %d, coordonée Y = %d", p1.getX(), p1.getY());
+      System.out.printf("coordonee X = %d, coordonee Y = %d", p1.getX(), p1.getY());
       System.out.printf("\n - Point p2: " + p2.toString());
       System.out.printf("\n - Point p3: ");
       p3.affiche();
 
-      System.out.printf("\n - Point p3_bis après Set : ");
+      System.out.printf("\n - Point p3_bis apres Set : ");
       p3_bis.setX(11);
       p3_bis.setY(12);
 
@@ -48,7 +50,7 @@ public class Main {
 
       System.out.printf("\n - Segment s2: " + s2.getPointA().toString() + s2.getPointB().toString());
 
-      System.out.printf("\n - Segment s2_bis après Set : ");
+      System.out.printf("\n - Segment s2_bis apres Set : ");
       s2_bis.setPointA(p2);
       s2_bis.setPointB(p1);
 
@@ -98,7 +100,7 @@ public class Main {
       
       double longueur = sNull.calculerLongueur();
 
-      System.out.printf("\nPour un segement de coordonées A et B (0,0) la longeur est de %f ", longueur);
+      System.out.printf("\nPour un segement de coordonees A et B (0,0) la longeur est de %f ", longueur);
       
       longueur = sVertical.calculerLongueur();
       
@@ -119,7 +121,7 @@ public class Main {
                        " la longeur est de %f", longueur);
       
       longueur = s1Inverse.calculerLongueur();
-      System.out.printf("\nPour un segement inverse du précédent : " +
+      System.out.printf("\nPour un segement inverse du precedent : " +
                         s1Inverse.toString() +
                         " la longeur est de %f", longueur);
 
